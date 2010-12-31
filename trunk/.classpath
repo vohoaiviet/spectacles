@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="conf"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.4.jar" sourcepath="lib/src/commons-codec-1.4-sources.jar"/>
+	<classpathentry kind="lib" path="lib/commons-dbutils-1.3.jar" sourcepath="lib/src/commons-dbutils-1.3-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/ImageFinder/lib/doc/commons-dbutils-1.3-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/commons-math-1.2.jar" sourcepath="lib/src/commons-math-1.2-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/ImageFinder/lib/doc/commons-math-1.2-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/junit-4.6.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="lib/opencsv-1.8.jar"/>
+	<classpathentry kind="lib" path="lib/profiler.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/javaopensurf"/>
+	<classpathentry kind="lib" path="lib/jopensurf.jar"/>
+	<classpathentry kind="lib" path="lib/kd.jar"/>
+	<classpathentry kind="lib" path="lib/trove-3.0.0a3.jar"/>
+	<classpathentry kind="lib" path="lib/json_simple-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/lire/caliph-emir-cbir.jar"/>
+	<classpathentry kind="lib" path="lib/lire/Jama-1.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/lire/lire.jar" sourcepath="C:/Users/Andrew/Downloads/Lire-0.8/Lire-0.8/src"/>
+	<classpathentry kind="lib" path="lib/lire/lucene-core-3.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/kmeansclustering.jar"/>
+	<classpathentry kind="lib" path="lib/stromberglabs-commons.jar"/>
+	<classpathentry kind="lib" path="lib/commons-configuration-1.6.jar" sourcepath="lib/src/commons-configuration-1.6-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/ImageFinder/lib/doc/commons-configuration-1.6-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/commons-lang-2.5.jar" sourcepath="lib/src/commons-lang-2.5-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/ImageFinder/lib/doc/commons-lang-2.5-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.13-bin.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

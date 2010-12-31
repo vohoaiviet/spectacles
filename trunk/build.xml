@@ -1,0 +1,76 @@
+<project>
+	<property name="lib.dir" value="lib"/>
+	<property name="build.dir" value="bin"/>
+	<property name="conf.dir" value="conf"/>
+	<property name="class.dir" value="${build.dir}/classes"/>
+
+	<path id="classpath">
+		<fileset dir="${lib.dir}" includes="**/*.jar"/>
+		<fileset dir="${conf.dir}" includes="**/*.properties"/>
+		<pathelement path="${class.dir}"/>
+	</path>
+
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+	</target>
+
+	<target name="compile">
+		<mkdir dir="${class.dir}"/>
+		<javac srcdir="src" destdir="${class.dir}" classpathref="classpath"/>
+	</target>
+
+	<target name="jar" depends="compile">
+		<mkdir dir="build/jar"/>
+        <jar destfile="build/jar/ImageFinder.jar" basedir="build/classes"/>
+	</target>
+	
+	<target name="tree" depends="compile">
+		<java fork="true" classpathref="classpath" classname="com.stromberglabs.visual.tree.VocabTreeManager">
+			<sysproperty key="log4j.configuration" value="file:${conf.dir}/conf.properties"/>
+			<jvmarg value="-Xmx15000M"/>
+			<arg line="${args}"/>
+		</java>
+	</target>
+	
+	<target name="imggrabber" depends="compile">
+		<java fork="true" classpathref="classpath" classname="com.stromberglabs.imgsrc.ImageGrabber">
+			<arg line="${args}"/>
+		</java>
+	</target>
+	
+	<target name="builder" depends="compile">
+		<java fork="true" classpathref="classpath" classname="com.stromberglabs.visual.builder.VisualSearchIndexBuilder">
+			<sysproperty key="log4j.configuration" value="file:${conf.dir}/log4j.properties"/>
+			<jvmarg value="-Xmx15000M"/>
+			<arg line="${args}"/>
+		</java>
+	</target>
+	
+	<target name="nytimesbestsellers" depends="compile">
+		<java fork="true" classpathref="classpath" classname="com.stromberglabs.imgsrc.nytimes.NYTimesCoverFinder">
+			<arg line="${args}"/>
+		</java>
+	</target>
+
+	<target name="pointgeneration" depends="compile">
+		<java fork="true" classpathref="classpath" classname="com.stromberglabs.visual.ip.factory.ThreadedInterestPointFactory">
+			<arg line="${args}"/>
+		</java>
+	</target>
+	
+	<target name="index" depends="compile">
+		<java fork="true" classpathref="classpath" classname="com.stromberglabs.visual.search.IndexBuilder">
+			<sysproperty key="log4j.configuration" value="file:${conf.dir}/conf.properties"/>
+			<jvmarg value="-Xmx16000M"/>
+			<arg line="${args}"/>
+		</java>
+	</target>
+
+	<target name="web-index" depends="compile">
+		<java fork="true" classpathref="classpath" classname="com.stromberglabs.index.WordInvertedIndex">
+			<sysproperty key="log4j.configuration" value="file:${conf.dir}/conf.properties"/>
+			<jvmarg value="-Xmx16000M"/>
+			<arg line="${args}"/>
+		</java>
+	</target>
+</project>
