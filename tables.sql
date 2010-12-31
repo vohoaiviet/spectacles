@@ -1,3 +1,7 @@
+create database imagesearch;
+
+use imagesearch;
+
 create table descriptors(
 	id integer not null auto_increment primary key,
 	group_id integer,
